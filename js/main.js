@@ -17,28 +17,65 @@ function creazioneCella(tag, nomeClasse, contenuto) {
 PROGRAMMA
 */
 
-// variabile per il bottone
+// variabile per il titolo
+const titolo = document.querySelector("h2");
+
+// variabile per il container
+const container = document.querySelector(".container");
+
+// variabili per i bottoni
 const bottonePlay = document.querySelector(".play");
+const bottoneReset = document.querySelector(".reset");
 
 // evento al click del bottone
 bottonePlay.addEventListener("click", function () {
-  // variabile per il titolo
-  const titolo = document.querySelector("h2");
-  titolo.classList.add("display-none");
-
-  // variabile per il container
-  const container = document.querySelector(".container");
+  // classi per visualizzare / non visualizzare container
   container.classList.remove("opacity-0");
   container.classList.add("opacity-1");
 
-  // per creare celle dinamicamente e assegnazione numero alle celle
-  for (let i = 1; i <= 100; i++) {
-    const elementoCella = creazioneCella("div", "cella", i);
-    container.append(elementoCella);
+  // classe per non far visualizzare il titolo
+  titolo.classList.add("display-none");
 
+  // tipo di livello scelto con la select
+  const select = document.querySelector("select").value;
+
+  // valore predefinito celle
+  let numeroCelle = 0;
+
+  // definire numero di celle in base alla scelta dell'utente
+  if (select === "facile") {
+    numeroCelle = 100;
+  } else if (select === "medio") {
+    numeroCelle = 81;
+  } else {
+    numeroCelle = 49;
+  }
+
+  // per creare celle dinamicamente e assegnazione numero alle celle
+  for (let i = 1; i <= numeroCelle; i++) {
+    let elementoCella = "";
+
+    // creazione numero di celle in base alla scelta dell'utente
+    if (numeroCelle === 100) {
+      elementoCella = creazioneCella("div", "cella", i);
+      container.append(elementoCella);
+    } else if (numeroCelle === 81) {
+      elementoCella = creazioneCella("div", "cella2", i);
+      container.append(elementoCella);
+    } else if (numeroCelle === 49) {
+      elementoCella = creazioneCella("div", "cella3", i);
+      container.append(elementoCella);
+    }
+
+    // al click cambio bg e stampa in console numero cella
     elementoCella.addEventListener("click", function () {
       elementoCella.classList.add("active");
       console.log(`La cella cliccata è la numero: ${i}`);
     });
   }
+});
+
+// al click ricarica la pagina
+bottoneReset.addEventListener("click", function () {
+  location.reload();
 });

@@ -50,7 +50,8 @@ header .logo {
   object-fit: contain;
 }
 
-.right button {
+.right button,
+select {
   padding: 10px 20px;
 }
 
@@ -82,6 +83,26 @@ main h2 {
 .cella {
   width: calc(100% / 10);
   height: calc(100% / 10);
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cella2 {
+  width: calc(100% / 9);
+  height: calc(100% / 9);
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cella3 {
+  width: calc(100% / 7);
+  height: calc(100% / 7);
   border: 1px solid black;
   display: flex;
   align-items: center;
