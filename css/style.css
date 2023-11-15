@@ -1,0 +1,79 @@
+/* RESET CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* common */
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-1 {
+  opacity: 1;
+}
+
+/* body */
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header .logo {
+  height: 60px;
+  width: 60px;
+}
+
+.logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.right button {
+  padding: 10px 20px;
+}
+
+/* main */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  flex-grow: 1;
+  padding: 50px 20px;
+  background-color: aquamarine;
+}
+
+main h2 {
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+  height: 90%;
+  width: 60%;
+  border: 2px solid black;
+}
+
+/* footer */
+footer {
+  padding: 20px;
+  font-size: 20px;
+}
