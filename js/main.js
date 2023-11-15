@@ -13,11 +13,6 @@ function creazioneCella(tag, nomeClasse, contenuto) {
   return cella;
 }
 
-function clickCella(nomeClasse, stampaConsole) {
-  creazioneCella("div").classList.add(nomeClasse);
-  console.log(stampaConsole);
-}
-
 /*
 PROGRAMMA
 */
@@ -42,7 +37,8 @@ bottonePlay.addEventListener("click", function () {
     container.append(elementoCella);
 
     elementoCella.addEventListener("click", function () {
-      clickCella("active", `La cella cliccata è la numero: ${i}`);
+      elementoCella.classList.add("active");
+      console.log(`La cella cliccata è la numero: ${i}`);
     });
   }
 });
