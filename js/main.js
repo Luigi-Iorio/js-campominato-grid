@@ -31,33 +31,8 @@ function nCelle() {
   return numeroCelle;
 }
 
-/*
-PROGRAMMA
-*/
-
-// variabile per il titolo
-const titolo = document.querySelector("h2");
-
-// variabile per il container
-const container = document.querySelector(".container");
-
-// variabili per i bottoni
-const bottonePlay = document.querySelector(".play");
-const bottoneReset = document.querySelector(".reset");
-
-// evento al click del bottone
-bottonePlay.addEventListener("click", function () {
-  // classi per visualizzare / non visualizzare container
-  container.classList.remove("opacity-0");
-  container.classList.add("opacity-1");
-
-  // classe per non far visualizzare il titolo
-  titolo.classList.add("display-none");
-
-  // definire numero di celle in base alla scelta dell'utente
-  nCelle();
-
-  // per creare celle dinamicamente e assegnazione numero alle celle
+// creare celle con bg al click e stampa numero in console
+function cCelle() {
   for (let i = 1; i <= nCelle(); i++) {
     let elementoCella = "";
 
@@ -79,9 +54,39 @@ bottonePlay.addEventListener("click", function () {
       console.log(`La cella cliccata è la numero: ${i}`);
     });
   }
+}
+
+/*
+PROGRAMMA
+*/
+
+// variabile per il titolo
+const titolo = document.querySelector("h2");
+
+// variabile per il container
+const container = document.querySelector(".container");
+
+// variabili per i bottoni
+const bottonePlay = document.querySelector(".play");
+const bottoneReset = document.querySelector(".reset");
+
+// evento al click del bottone play
+bottonePlay.addEventListener("click", function () {
+  // classi per visualizzare / non visualizzare container
+  container.classList.remove("opacity-0");
+  container.classList.add("opacity-1");
+
+  // classe per non far visualizzare il titolo
+  titolo.classList.add("display-none");
+
+  // definire numero di celle in base alla scelta dell'utente
+  nCelle();
+
+  // per creare celle dinamicamente e assegnazione numero alle celle
+  cCelle();
 });
 
-// al click ricarica la pagina
+// al click bottone reset ricarica la pagina
 bottoneReset.addEventListener("click", function () {
   location.reload();
 });
