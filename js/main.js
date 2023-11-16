@@ -13,6 +13,24 @@ function creazioneCella(tag, nomeClasse, contenuto) {
   return cella;
 }
 
+// definire numero celle
+function nCelle() {
+  // tipo di livello scelto con la select
+  const select = document.querySelector("select").value;
+  // valore predefinito celle
+  let numeroCelle = 0;
+
+  if (select === "facile") {
+    numeroCelle = 100;
+  } else if (select === "medio") {
+    numeroCelle = 81;
+  } else {
+    numeroCelle = 49;
+  }
+
+  return numeroCelle;
+}
+
 /*
 PROGRAMMA
 */
@@ -36,33 +54,21 @@ bottonePlay.addEventListener("click", function () {
   // classe per non far visualizzare il titolo
   titolo.classList.add("display-none");
 
-  // tipo di livello scelto con la select
-  const select = document.querySelector("select").value;
-
-  // valore predefinito celle
-  let numeroCelle = 0;
-
   // definire numero di celle in base alla scelta dell'utente
-  if (select === "facile") {
-    numeroCelle = 100;
-  } else if (select === "medio") {
-    numeroCelle = 81;
-  } else {
-    numeroCelle = 49;
-  }
+  nCelle();
 
   // per creare celle dinamicamente e assegnazione numero alle celle
-  for (let i = 1; i <= numeroCelle; i++) {
+  for (let i = 1; i <= nCelle(); i++) {
     let elementoCella = "";
 
     // creazione numero di celle in base alla scelta dell'utente
-    if (numeroCelle === 100) {
+    if (nCelle() === 100) {
       elementoCella = creazioneCella("div", "cella", i);
       container.append(elementoCella);
-    } else if (numeroCelle === 81) {
+    } else if (nCelle() === 81) {
       elementoCella = creazioneCella("div", "cella2", i);
       container.append(elementoCella);
-    } else if (numeroCelle === 49) {
+    } else if (nCelle() === 49) {
       elementoCella = creazioneCella("div", "cella3", i);
       container.append(elementoCella);
     }
